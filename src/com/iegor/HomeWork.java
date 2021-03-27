@@ -149,19 +149,23 @@ public class HomeWork {
     public static void fillFromConsole(int [] nums) {
         Scanner sc = new Scanner(System.in);
                 for (int i = 0; i < nums.length; i++) {
-                    while(true){
-                    try{
-                    System.out.println(" Enter nums[" + i + "]" );
-                    nums [i] = sc.nextInt();
-                    break;
-                    }catch (Exception e) {
-                        System.err.println("Error: input not INT");
-                        sc.nextLine();
-
-                    }
-                    }
+                    validateInt(nums, sc, i);
         }
         sc.close();
+    }
+
+    private static void validateInt(int[] nums, Scanner sc, int i) {
+        while(true){
+        try{
+        System.out.println(" Enter nums[" + i + "]" );
+        nums [i] = sc.nextInt();
+        break;
+        }catch (Exception e) {
+            System.err.println("Error: input not INT");
+            sc.nextLine();
+
+        }
+        }
     }
 
     public static void isInRange(int n) {
