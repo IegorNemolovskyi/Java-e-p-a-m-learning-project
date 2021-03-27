@@ -149,17 +149,16 @@ public class HomeWork {
     public static void fillFromConsole(int [] nums) {
         Scanner sc = new Scanner(System.in);
                 for (int i = 0; i < nums.length; i++) {
-                    validateInt(nums, sc, i);
+                     nums[i] = validateInt(sc);
         }
         sc.close();
     }
 
-    private static void validateInt(int[] nums, Scanner sc, int i) {
+    private static int validateInt(Scanner sc) {
         while(true){
         try{
-        System.out.println(" Enter nums[" + i + "]" );
-        nums [i] = sc.nextInt();
-        break;
+        System.out.println(">>Enter value = " );
+        return sc.nextInt();
         }catch (Exception e) {
             System.err.println("Error: input not INT");
             sc.nextLine();
@@ -168,9 +167,15 @@ public class HomeWork {
         }
     }
 
-    public static void isInRange(int n) {
+    // public static int isInRange(int n) {
+    //     if (n>0 && n < 12) {
+    //         return n;
+            
+    //     }
+    //     else {
+    //         throw new IllegalArgumentException("Value is not in range");
+    //     }
         
-        
-    }
+    // }
 
 }
