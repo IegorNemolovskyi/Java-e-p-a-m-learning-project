@@ -43,27 +43,46 @@ public class lecture3 {
     public static void fillFromConsole(int [] nums) {
         Scanner sc = new Scanner(System.in);
                 for (int i = 0; i < nums.length; i++) {
-                    validateInt(nums, sc, i);
-                }
-                sc.close();
-            }
-        
-            private static void validateInt(int[] nums, Scanner sc, int i) {
-                    while(true){
-                    try{
-                    System.out.println(" Enter nums[" + i + "]" );
-                    nums [i] = sc.nextInt();
-                    break;
-                    }catch (Exception e) {
-                        System.err.println("Error: input not INT");
-                        sc.nextLine();
-
-                    }
-                    }
+                    System.out.println("nums[" + i + "]");
+                    int value = validateValue(sc);
+                    nums[i] = value;
         }
+        sc.close();
+    }
 
-    public static void isInRange(int n) {
-        
+    private static int validateValue(Scanner sc) {
+        while (true){
+        try{
+        int valueInt = validateInt(sc);
+        return isInRange(valueInt);
+        }
+        catch (IllegalArgumentException e){
+                System.err.println("Value is not in range");
+        }
+        }
+    }
+
+    private static int validateInt(Scanner sc) {
+        while(true){
+        try{
+        System.out.println(">>Enter value = " );
+        return sc.nextInt();
+        }catch (Exception e) {
+            System.err.println("Error: input not INT");
+            sc.nextLine();
+
+        }
+        }
+    }
+
+    public static int isInRange(int n) {
+        if (n>0 && n < 12) {
+            return n;
+            
+        }
+        else {
+            throw new IllegalArgumentException("Value is not in range");
+        }
         
     }
 
