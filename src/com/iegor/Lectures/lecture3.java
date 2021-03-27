@@ -43,6 +43,12 @@ public class lecture3 {
     public static void fillFromConsole(int [] nums) {
         Scanner sc = new Scanner(System.in);
                 for (int i = 0; i < nums.length; i++) {
+                    validateInt(nums, sc, i);
+                }
+                sc.close();
+            }
+        
+            private static void validateInt(int[] nums, Scanner sc, int i) {
                     while(true){
                     try{
                     System.out.println(" Enter nums[" + i + "]" );
@@ -55,8 +61,6 @@ public class lecture3 {
                     }
                     }
         }
-        sc.close();
-    }
 
     public static void isInRange(int n) {
         
