@@ -1,7 +1,9 @@
 package com.iegor;
 
 import java.util.Arrays;
-//import com.iegor.HW1;
+import com.iegor.HW1.*;
+import com.iegor.HW2.*;
+import com.iegor.HW3.*;
 
 public class HomeWork {
     public static void main(String[] args) {

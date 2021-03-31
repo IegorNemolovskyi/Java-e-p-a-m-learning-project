@@ -1,4 +1,4 @@
-package com.iegor;
+package com.iegor.HW3;
 
 public class HW3 {
     public static void hw3task1(int[] nums) {

@@ -1,4 +1,4 @@
-package com.iegor;
+package com.iegor.HW4;
 
 public class HW4 {
     public static void hw4task1() {
