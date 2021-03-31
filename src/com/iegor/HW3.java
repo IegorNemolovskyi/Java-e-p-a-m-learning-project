@@ -46,7 +46,7 @@ public class HW3 {
                 ;
     }
 
-    public static void hw3task3(int[][] numsM) {
+    public static int[][] hw3task3(int[][] numsM) {
         // In a predetermined two-dimensional integer array (square matrix) matrix insert 0 into elements to the left side of the main diagonal, and 1 into elements to the right side of the diagonal.
         // Example:
         // {{2, 4, 3, 3},  {5, 7, 8, 5},  {2, 4, 3, 3},  {5, 7, 8, 5}}   =>   {{2, 1, 1, 1},  {0, 7, 1, 1},  {0, 0, 3, 1},  {0, 0, 0, 5}}
@@ -60,5 +60,6 @@ public class HW3 {
                 }
             }
         }
+        return numsM;
     }
 }
