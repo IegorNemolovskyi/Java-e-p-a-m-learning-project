@@ -1,4 +1,4 @@
-package com.iegor.Lectures;
+package com.iegor.Lectures.lecture3;
 import java.util.Scanner;
 public class lecture3 {
 
