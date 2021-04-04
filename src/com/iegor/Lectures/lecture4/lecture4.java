@@ -1,6 +1,5 @@
 package com.iegor.Lectures.lecture4;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 class MySwap{
     int x;

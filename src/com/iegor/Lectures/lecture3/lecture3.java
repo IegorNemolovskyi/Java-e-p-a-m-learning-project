@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class lecture3 {
 
     public static void main(String[] args) {
-        int a = 1;
+        //int a = 1;
         int [] nums = new  int[10];
         System.out.println(nums);
         fillNums(nums);
