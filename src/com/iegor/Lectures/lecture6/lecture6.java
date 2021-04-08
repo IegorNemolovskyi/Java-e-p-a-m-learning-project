@@ -43,8 +43,8 @@ public class lecture6 {
         System.out.println(listPoints.getMaxxCoordinate());
         System.out.println(listPoints.getMaxyCoordinate());
 
-        ListPoint listPoint2 = new ListPoint();
-        listPoints.add(new Point(p.getX(), p.getY())); // cloned point
-        listPoints.add(new Point(7, 6));
+        //ListPoint listPoint2 = new ListPoint();
+        //listPoints.add(new Point(p.getX(), p.getY())); // cloned point
+        //listPoints.add(new Point(7, 6));
     }
 }
