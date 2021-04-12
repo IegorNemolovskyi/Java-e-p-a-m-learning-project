@@ -1,4 +1,4 @@
-package com.iegor.Lectures.lecture6.figures;
+package com.iegor.Lectures.Lecture6.figures;
 
 public class ListPoint {
     private Point [] points;

@@ -1,8 +1,8 @@
-package com.iegor.Lectures.lecture5;
+package com.iegor.Lectures.Lecture5;
 
 import java.util.Scanner;
 
-public class lecture5 {
+public class Lecture5 {
     public static void main(String[] args) {
         String str;
         int[] masInt = {1, 4, 'a'};

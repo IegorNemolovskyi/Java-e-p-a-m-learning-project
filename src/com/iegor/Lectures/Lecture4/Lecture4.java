@@ -1,4 +1,4 @@
-package com.iegor.Lectures.lecture4;
+package com.iegor.Lectures.Lecture4;
 
 import java.util.Arrays;
 class MySwap{

@@ -1,4 +1,4 @@
-package com.iegor.Lectures.lecture5;
+package com.iegor.Lectures.Lecture5;
 
 import java.util.regex.*;
 
