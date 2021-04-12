@@ -76,8 +76,8 @@ public class HomeWork {
         // >>Home work lesson 4 task 3: start
         System.out.println("Home work 4 task 4 result is:");
         System.out.println(Task4.sumGeometricElements(100, 0.5, 20));
+
+        // Home work 5 was absent
+        // Home work 6 in file HW6/HW6.java
     }
-
-    
-
 }
