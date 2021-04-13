@@ -72,13 +72,13 @@ public class SwapUtil {
         for (int i = 0; i < t.length; i++) {
             arr2[i]=t[i];
         }
-        
+
         System.out.println("After swapping(Inside)1, " + Arrays.toString(arr1));
         System.out.println("After swapping(Inside)2, " + Arrays.toString(arr2));
     }
 
     static void swapFunction(MySwap mySwap) {
-        
+
         int t = mySwap.y;
         mySwap.y = mySwap.x;
         mySwap.x = t;
