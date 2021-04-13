@@ -1,11 +1,11 @@
-package com.iegor.Lectures.lecture4;
+package com.iegor.Lectures.Lecture4;
 
 import java.util.Arrays;
 class MySwap{
     int x;
     int y;
 }
-public class lecture4 {
+public class Lecture4 {
     public static void main(String[] args) {
         int a = 30;
         int b = 45;
@@ -27,13 +27,11 @@ public class lecture4 {
         SwapUtil.swapFunction(arr1, arr2);
         System.out.println("After swapping, arr1 = "+ Arrays.toString(arr1));
         System.out.println("After swapping, arr2 = "+ Arrays.toString(arr2));
-        
+
         Integer i1 = a;
         Integer i2 = b;
         SwapUtil.swapFunction(i1, i2);
-        System.out.println("After swapping, i1 = " + i1 + " and i2 is " + i2); 
-    
-    }
+        System.out.println("After swapping, i1 = " + i1 + " and i2 is " + i2);
 
-    
-} 
+    }
+}

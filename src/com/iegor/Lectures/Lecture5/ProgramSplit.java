@@ -1,4 +1,4 @@
-package com.iegor.Lectures.lecture5;
+package com.iegor.Lectures.Lecture5;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,7 +19,7 @@ public class ProgramSplit {
 
 
         int [] arrValues = new int[10];
-        Scanner sc = new Scanner(new FileInputStream("D:\\02-Programming\\Learning\\EPAM\\HW\\Java e p a m learning project\\src\\com\\iegor\\Lectures\\lecture5\\value.txt"));
+        Scanner sc = new Scanner(new FileInputStream("D:\\02-Programming\\Learning\\EPAM\\HW\\Java e p a m learning project\\src\\com\\iegor\\Lectures\\Lecture5\\value.txt"));
         String strValues = "";
         while (sc.hasNextLine())
         strValues += sc.nextLine();
@@ -36,7 +36,7 @@ public class ProgramSplit {
 
 
         int [] arrValues2 = new int[10];
-        Scanner sc2 = new Scanner(new FileInputStream("D:\\02-Programming\\Learning\\EPAM\\HW\\Java e p a m learning project\\src\\com\\iegor\\Lectures\\lecture5\\value.txt"));
+        Scanner sc2 = new Scanner(new FileInputStream("D:\\02-Programming\\Learning\\EPAM\\HW\\Java e p a m learning project\\src\\com\\iegor\\Lectures\\Lecture5\\value.txt"));
         StringBuilder strValues2 = new StringBuilder();
         while (sc2.hasNextLine()){
             System.out.println(strValues2.capacity() + "/" + strValues2.length());
