@@ -10,11 +10,6 @@ public class Manager extends Employee{
         this.quantity = clientAmount;
     }
 
-    public Manager(String lastName, BigDecimal salary) {
-        super(lastName, salary);
-        this.quantity = 0;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -36,3 +31,4 @@ public class Manager extends Employee{
         return bonus;
     }
 }
+

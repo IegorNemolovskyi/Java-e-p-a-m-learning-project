@@ -10,11 +10,6 @@ public class SalesPerson extends Employee{
         this.percent = percent;
     }
 
-    public SalesPerson(String lastName, BigDecimal salary) {
-        super(lastName, salary);
-        this.percent = 0;
-    }
-
     public int getPercent() {
         return percent;
     }
@@ -29,11 +24,10 @@ public class SalesPerson extends Employee{
             throw new IllegalArgumentException();
         }
         else if (this.percent > 100 && this.percent <= 200)
-            this.bonus = bonus.multiply(new BigDecimal(2));
+            this.bonus = bonus.multiply(BigDecimal.valueOf(2));
         else if (this.percent > 200)
-            this.bonus = bonus.multiply(new BigDecimal(3));
+            this.bonus = bonus.multiply(BigDecimal.valueOf(3));
         else this.bonus = bonus;
         return bonus;
     }
 }
-

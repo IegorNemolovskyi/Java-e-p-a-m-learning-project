@@ -5,9 +5,10 @@ import java.math.BigDecimal;
 public abstract class Employee {
     private String lastName;
     private BigDecimal salary;
-    protected BigDecimal bonus = new BigDecimal(35);
+    protected BigDecimal bonus = new BigDecimal(10);
 
     public Employee(String lastName, BigDecimal salary) {
+        super();
         this.lastName = lastName;
         this.salary = salary;
     }
@@ -31,19 +32,17 @@ public abstract class Employee {
         return bonus;
     }
 
-    public abstract BigDecimal setBonus(BigDecimal bonus);// {
-
+    public abstract BigDecimal setBonus(BigDecimal bonus);
 
     public BigDecimal toPay() {
-        if (salary == null || bonus == null || bonus.compareTo(BigDecimal.valueOf(0))<0){
+        if (salary == null || bonus == null || bonus.compareTo(BigDecimal.valueOf(0))<0) {
             throw new IllegalArgumentException();
         }
-        else return getSalary().add(setBonus(bonus));
+        else return getSalary().add(bonus);
     }
 
     @Override
     public String toString() {
-        return "Employee payments = " + this.toPay() +
-                ", bonus=" + this.setBonus(bonus);
+        return getLastName() + "; " + getSalary() + "; " + getBonus() + "; " + toPay();
     }
 }
