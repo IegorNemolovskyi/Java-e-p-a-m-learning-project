@@ -79,5 +79,6 @@ public class HomeWork {
 
         // Home work 5 was absent
         // Home work 6 in file HW6/HW6.java
+        // Home work 7 in file HW7/HW7.java
     }
 }

@@ -1,8 +1,8 @@
-package com.iegor.Lectures.lecture6;
+package com.iegor.Lectures.Lecture6;
 
-import com.iegor.Lectures.lecture6.figures.*;
+import com.iegor.Lectures.Lecture6.figures.*;
 
-public class lecture6 {
+public class Lecture6 {
     public static void main(String[] args) {
         Point p = new Point(3,4);
         //p.setX(1);

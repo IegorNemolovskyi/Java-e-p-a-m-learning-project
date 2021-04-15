@@ -1,6 +1,6 @@
-package com.iegor.Lectures.lecture3;
+package com.iegor.Lectures.Lecture3;
 import java.util.Scanner;
-public class lecture3 {
+public class Lecture3 {
 
     public static void main(String[] args) {
         //int a = 1;
