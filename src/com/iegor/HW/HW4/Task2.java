@@ -1,4 +1,4 @@
-package com.iegor.HW4;
+package com.iegor.HW.HW4;
 
 public class Task2 {
     private Task2(){}

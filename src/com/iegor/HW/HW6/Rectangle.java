@@ -1,4 +1,4 @@
-package com.iegor.HW6;
+package com.iegor.HW.HW6;
 
 public class Rectangle {
     private double sideA;

@@ -1,4 +1,4 @@
-package com.iegor.HW7;
+package com.iegor.HW.HW7;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.iegor.HW2;
+package com.iegor.HW.HW2;
 
 public class HW2 {
     

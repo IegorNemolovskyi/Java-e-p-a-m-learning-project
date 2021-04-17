@@ -1,4 +1,4 @@
-package com.iegor.HW4;
+package com.iegor.HW.HW4;
 
 public enum SortOrder {
     ASC,

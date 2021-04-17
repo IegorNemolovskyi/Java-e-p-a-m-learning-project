@@ -1,9 +1,6 @@
-package com.iegor.HW7;
-
-import com.iegor.Lectures.Lecture7.People.Person;
+package com.iegor.HW.HW7;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 
 public class HW7 {
     /**
