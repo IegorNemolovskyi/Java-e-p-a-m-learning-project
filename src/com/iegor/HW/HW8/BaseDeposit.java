@@ -3,20 +3,23 @@ package com.iegor.HW.HW8;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class BaseDeposit extends Deposit{
-    private BigDecimal interest;
+public class BaseDeposit extends Deposit {
 
-    public BaseDeposit(BigDecimal depositAmount, int depositPeriod) {
-        super(depositAmount, depositPeriod);
+    public BaseDeposit(BigDecimal amount, int period) {
+        super(amount, period);
+    }
+    @Override
+    public BigDecimal income() {
+        BigDecimal income;
+        if (period <=0 || amount.compareTo(BigDecimal.valueOf(0))<0)
+            throw new IllegalArgumentException();
+        else income = amount.multiply(BigDecimal.valueOf(Math.pow(1.05,period))).subtract(amount).subtract(BigDecimal.valueOf(0.001));
+        return income.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override
-    public BigDecimal Income(BigDecimal Amount, int Period) {
-        if (Period <=0 || Amount.compareTo(BigDecimal.valueOf(0))<0)
-            throw new IllegalArgumentException();
-        else interest = Amount().multiply(BigDecimal.valueOf(Math.pow(1.05,Period))).subtract(Amount());
-//            return interest.setScale(2,1);
-        return interest.setScale(2, RoundingMode.CEILING);
+    public String toString() {
+        return "BaseDeposit: " + super.toString() +
+                "; Income= " + income();
     }
-
 }

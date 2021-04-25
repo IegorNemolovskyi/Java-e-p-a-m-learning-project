@@ -1,32 +1,34 @@
 package com.iegor.HW.HW8;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 
 public class LongDeposit extends Deposit{
-    private double percent;
-    private BigDecimal sum;
-    private BigDecimal interest;
 
-    public LongDeposit(BigDecimal depositAmount, int depositPeriod) {
-        super(depositAmount, depositPeriod);
+    public LongDeposit(BigDecimal amount, int period) {
+        super(amount, period);
     }
 
     @Override
-    public BigDecimal Income(BigDecimal Amount, int Period) {
-        sum = Amount;
-        if (Period <=0 || Amount.compareTo(BigDecimal.valueOf(0))<0)
+    public BigDecimal income() {
+        BigDecimal sum = amount;
+        BigDecimal income = sum.subtract(amount);
+        if (period <=0 || amount.compareTo(BigDecimal.valueOf(0))<0)
             throw new IllegalArgumentException();
-        else if (Period>0 && Period<=6){
-            return Amount;
+        else if (period>0 && period<=6){
+            return (BigDecimal.valueOf(0));
         }
-        for (double i = 7; i <= Period ; i++) {
-            percent = 0.15;
+        for (double i = 7; i <= period ; i++) {
+            double percent = 0.15;
             sum = sum.multiply(BigDecimal.valueOf(1+percent));
-            interest = sum.subtract(Amount);
+            income = sum.subtract(amount);
         }
-//        return interest.setScale(2,1);
-        return interest.setScale(2,RoundingMode.CEILING);
+        return income.setScale(2,RoundingMode.HALF_EVEN);
+    }
+
+    @Override
+    public String toString() {
+        return "BaseDeposit: " + super.toString() +
+                "; Income= " + income();
     }
 }
