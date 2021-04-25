@@ -1,14 +1,14 @@
 package com.iegor;
 
 import java.util.Arrays;
-import com.iegor.HW1.*;
-import com.iegor.HW2.*;
-import com.iegor.HW3.*;
-import com.iegor.HW4.SortOrder;
-import com.iegor.HW4.Task1;
-import com.iegor.HW4.Task2;
-import com.iegor.HW4.Task3;
-import com.iegor.HW4.Task4;
+import com.iegor.HW.HW1.*;
+import com.iegor.HW.HW2.*;
+import com.iegor.HW.HW3.*;
+import com.iegor.HW.HW4.SortOrder;
+import com.iegor.HW.HW4.Task1;
+import com.iegor.HW.HW4.Task2;
+import com.iegor.HW.HW4.Task3;
+import com.iegor.HW.HW4.Task4;
 
 
 public class HomeWork {
@@ -78,7 +78,8 @@ public class HomeWork {
         System.out.println(Task4.sumGeometricElements(100, 0.5, 20));
 
         // Home work 5 was absent
-        // Home work 6 in file HW6/HW6.java
-        // Home work 7 in file HW7/HW7.java
+        // Home work 6 in file HW/HW6/HW6.java
+        // Home work 7 in file HW/HW7/HW7.java
+        // Home work 8 in file HW/HW8/HW8.java
     }
 }
