@@ -20,8 +20,8 @@ public class LongDeposit extends Deposit implements Prolongable {
             return (BigDecimal.valueOf(0));
         }
         for (double i = 7; i <= period ; i++) {
-            double percent = 0.15;
-            sum = sum.multiply(BigDecimal.valueOf(1+percent));
+            double percent = 15;
+            sum = sum.multiply(BigDecimal.valueOf(1+percent/100));
             income = sum.subtract(amount);
         }
         return income.setScale(2,RoundingMode.HALF_EVEN);
@@ -36,9 +36,6 @@ public class LongDeposit extends Deposit implements Prolongable {
     @Override
     public boolean canToProlong() {
         int maxDepositPeriod = 36;
-        if (period >= maxDepositPeriod){
-            return false;
-        }
-        return true;
+        return period < maxDepositPeriod;
     }
 }

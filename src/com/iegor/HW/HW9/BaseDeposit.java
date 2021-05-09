@@ -11,9 +11,10 @@ public class BaseDeposit extends Deposit implements Prolongable{
     @Override
     public BigDecimal income() {
         BigDecimal income;
+        double percent = 5;
         if (period <=0 || amount.compareTo(BigDecimal.valueOf(0))<0)
             throw new IllegalArgumentException();
-        else income = amount.multiply(BigDecimal.valueOf(Math.pow(1.05,period))).subtract(amount).subtract(BigDecimal.valueOf(0.001));
+        else income = amount.multiply(BigDecimal.valueOf(Math.pow((1+percent/100),period))).subtract(amount).subtract(BigDecimal.valueOf(0.001));
         return income.setScale(2, RoundingMode.HALF_EVEN);
     }
 

@@ -12,6 +12,16 @@ public abstract class Deposit implements Comparable<Deposit>, Prolongable{
         return (this.getAmount().add(this.income()).compareTo(o.getAmount().add(o.income())));
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public BigDecimal getAmount() {
         return amount;
     }
@@ -20,7 +30,7 @@ public abstract class Deposit implements Comparable<Deposit>, Prolongable{
         return period;
     }
 
-    public Deposit(BigDecimal amount, int period) {
+    protected Deposit(BigDecimal amount, int period) {
         this.amount = amount;
         this.period = period;
     }

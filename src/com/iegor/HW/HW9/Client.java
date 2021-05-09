@@ -2,14 +2,12 @@ package com.iegor.HW.HW9;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
 public class Client implements Iterable<Deposit>{
     private Deposit[] deposits;
     private int count = 0;
-//    private node head;
 
     public Client(Deposit[] deposits) { // e-mentor>> public Client() {
         this.deposits = new Deposit[10];

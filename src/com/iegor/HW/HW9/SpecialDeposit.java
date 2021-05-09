@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class SpecialDeposit extends Deposit implements Prolongable{
-//    private double percent;
 
     public SpecialDeposit(BigDecimal amount, int period) {
         super(amount, period);
@@ -18,8 +17,8 @@ public class SpecialDeposit extends Deposit implements Prolongable{
         if (period <=0 || amount.compareTo(BigDecimal.valueOf(0))<0)
             throw new IllegalArgumentException();
         else for (double i = 1; i <= period ; i++) {
-            double percent = i/100;
-            sum = sum.multiply(BigDecimal.valueOf(1+percent));
+            double percent = i;
+            sum = sum.multiply(BigDecimal.valueOf(1+percent/100));
             income = sum.subtract(amount);
         }
         return income.setScale(2,RoundingMode.HALF_EVEN);
@@ -34,9 +33,6 @@ public class SpecialDeposit extends Deposit implements Prolongable{
     @Override
     public boolean canToProlong() {
         int minDepositAmount = 1000;
-        if (amount.compareTo(BigDecimal.valueOf(minDepositAmount))<=0){
-            return false;
-        }
-        return true;
+        return amount.compareTo(BigDecimal.valueOf(minDepositAmount))>0;
     }
 }
