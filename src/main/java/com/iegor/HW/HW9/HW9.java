@@ -26,8 +26,8 @@ import java.util.Arrays;
 public class HW9 {
     public static void main(String[] args) {
         Deposit dep1 = new BaseDeposit(BigDecimal.valueOf(1000), 3);
-        Deposit dep2 = new SpecialDeposit(BigDecimal.valueOf(1000), 2);
-        Deposit dep3 = new LongDeposit(BigDecimal.valueOf(1000), 8);
+        Deposit dep2 = new SpecialDeposit(BigDecimal.valueOf(1000), 3);
+        Deposit dep3 = new LongDeposit(BigDecimal.valueOf(1000), 7);
 
 
         System.out.println(dep1);
