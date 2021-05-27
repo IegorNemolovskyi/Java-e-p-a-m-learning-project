@@ -36,19 +36,24 @@ import java.util.Arrays;
 public class HW10 {
     public static void main(String[] args) throws MatrixException {
 
-        Matrix matrix1 = new Matrix(3,2);
-        Matrix matrix2 = new Matrix(new double[][]{{1},{2}});
-        Matrix matrix3 = new Matrix(new double[][]{{1,1,1},{1,1,1}});
+        Matrix matrix1 = new Matrix(2,2);
+        Matrix matrix2 = new Matrix(new double[][]{{1,2},{3,4}});
+        Matrix matrix3 = new Matrix(new double[][]{{1,1},{1,1}});
 
 //        System.out.println(matrix1);
 //        System.out.print("Matrix selected element is: ");
 //        System.out.println(matrix1.getValue(2,1));
         System.out.print(matrix2);
         System.out.print("Matrix selected element is: ");
-        System.out.println(matrix2.getValue(1,0));
+        System.out.println(matrix2.getValue(1,1));
         System.out.println("NEW Matrix is: ");
-        matrix2.setValue(1,0,9);
+        matrix2.setValue(1,1,9);
         System.out.println(matrix2);
+        System.out.println("Addition results: ");
+        System.out.println(matrix1.addition(matrix1));
+//        System.out.println(Arrays.deepToString(matrix2.twoDimensionalArrayOutOfMatrix()));
+
+//        matrix2.addition(matrix1);
 //        System.out.println(matrix3);
 //        System.out.print("Matrix selected element is: ");
 //        System.out.println(matrix3.getValue(1,2));

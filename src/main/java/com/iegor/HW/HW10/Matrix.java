@@ -1,15 +1,15 @@
 package com.iegor.HW.HW10;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Matrix {
     private int row;
     private int column;
-    private double[][] matrix;
+    private double[][] basicMatrix;
     private double matrixElement = 0;
     private double[][] twoDimensionalArray;
     private double[][] twoDimensionalArrayOutOfMatrix;
+    private String incompatibleMatrix = "Incompatible matrix sizes";
 
     /**
      * Implement a constructor that creates an empty matrix with a given number of rows
@@ -22,7 +22,7 @@ public class Matrix {
     public Matrix(int row, int column) {
         this.row = row;
         this.column = column;
-        this.matrix = new double[row][column];
+        this.basicMatrix = new double[row][column];
     }
 
     /**
@@ -35,22 +35,18 @@ public class Matrix {
      */
     public Matrix(double[][] twoDimensionalArray) throws MatrixException {
         this.twoDimensionalArray = twoDimensionalArray;
-        try {
-            if (this.twoDimensionalArray.length == 0)
-                throw new MatrixException("Array passed with zero number of rows");
-            else if (this.twoDimensionalArray[0].length == 0)
-                throw new MatrixException("Array passed with zero number of columns");
-            else this.matrix = twoDimensionalArray;
-        } catch (MatrixException e) {
-            System.err.println(e.getMessage());
-        }
+        if (this.twoDimensionalArray.length == 0)
+            throw new MatrixException("Array passed with zero number of rows");
+        else if (this.twoDimensionalArray[0].length == 0)
+            throw new MatrixException("Array passed with zero number of columns");
+        else this.basicMatrix = twoDimensionalArray;
     }
 
     /**
      * @return Returns the number of rows in a matrix
      */
     public final int rows() {
-        row = this.matrix.length;
+        row = this.basicMatrix.length;
         return row;
     }
 
@@ -58,7 +54,7 @@ public class Matrix {
      * @return Returns the number of columns in a matrix
      */
     public final int columns() {
-        column = this.matrix[0].length;
+        column = this.basicMatrix[0].length;
         return column;
     }
 
@@ -68,7 +64,7 @@ public class Matrix {
      * @return Standard two-dimensional array
      */
     public double[][] twoDimensionalArrayOutOfMatrix() {
-        twoDimensionalArrayOutOfMatrix =  this.matrix;
+        twoDimensionalArrayOutOfMatrix =  this.basicMatrix;
         return twoDimensionalArrayOutOfMatrix;
     }
 
@@ -81,14 +77,10 @@ public class Matrix {
      * @throws MatrixException if index incorrect, returns message "Incompatible matrix sizes"
      */
     public double getValue(int row, int column) throws MatrixException {
-        try {
-            if (row >= this.matrix.length ||
-                    column >= this.matrix[0].length)
-                throw new MatrixException("Incompatible matrix sizes");
-            else matrixElement = this.matrix[row][column];
-        } catch (MatrixException e) {
-            System.err.println(e.getMessage());
-        }
+        if (row >= this.basicMatrix.length ||
+                column >= this.basicMatrix[0].length)
+            throw new MatrixException(incompatibleMatrix);
+        else matrixElement = this.basicMatrix[row][column];
         return matrixElement;
     }
 
@@ -101,45 +93,44 @@ public class Matrix {
      * @throws MatrixException if index incorrect, returns message "Incompatible matrix sizes"
      */
     public void setValue(int row, int column, double newValue) throws MatrixException {
-        this.row = row;
-        this.column = column;
-        try {
-            if (row >= this.matrix.length ||
-                    column >= this.matrix[0].length)
-                throw new MatrixException("Incompatible matrix sizes");
-            else this.matrix[row][column] = newValue;
-        } catch (MatrixException e) {
-            System.err.println(e.getMessage());
-        }
+        if (row >= this.basicMatrix.length ||
+                column >= this.basicMatrix[0].length)
+            throw new MatrixException(incompatibleMatrix);
+        else this.basicMatrix[row][column] = newValue;
     }
 
-//    /**
-//     * Method of matrix's addition  <code>matrix</code>.
-//     * Result in the original matrix
-//     *
-//     * @param matrix matrix corresponding to the second term
-//     * @return Returns a new resulting matrix
-//     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
-//     */
-//    public Matrix addition(Matrix matrix) throws MatrixException {
-//        this.matrix = matrix;
-//        Matrix sumOfMatrix = new Matrix (this.twoDimensionalArray[0].length, this.twoDimensionalArray.length);
+    /**
+     * Method of matrix's addition  <code>matrix</code>.
+     * Result in the original matrix
+     *
+     * @param matrix matrix corresponding to the second term
+     * @return Returns a new resulting matrix
+     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
+     */
+    public Matrix addition(Matrix matrix) throws MatrixException {
+//        double[][] matrix1;
+//        double[][] matrix2;
+//        double[][] sumOfMatrix;
+        if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
+            throw new MatrixException(incompatibleMatrix);
+        else
+//            matrix1 = this.matrix;
+//            matrix2 = matrix.twoDimensionalArrayOutOfMatrix();
+            throw new UnsupportedOperationException();
+//        Matrix sumOfMatrix = new Matrix();
 //        for (int i = 0; i < this.twoDimensionalArray.length; i++){
 //            for (int j = 0; j < this.twoDimensionalArray[0].length; j++){
-//                sumOfMatrix = matrix * matrix;
-//                return sumOfMatrix[i][j];
+//                sumOfMatrix[i][j] = this.matrix[i][j] + matrix.twoDimensionalArrayOutOfMatrix()[i][j];
+//                this.matrix = sumOfMatrix;
+//                return this.matrix;
 //            }
 //
 //        }
-//
-//
-//
-//
-//
-//
-//        //TODO: Delete line below and write your own solution;
+
+        //TODO: Delete line below and write your own solution;
 //        throw new UnsupportedOperationException();
-//    }
+//        return matrix;
+    }
 
 //    /**
 //     * Method of matrix's deduction <code>matrix</code> from original.
@@ -150,10 +141,11 @@ public class Matrix {
 //     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
 //     */
 //    public Matrix subtraction(final Matrix matrix) throws MatrixException {
-//        //TODO: Delete line below and write your own solution;
-//        throw new UnsupportedOperationException();
+//        if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
+//            throw new MatrixException("Incompatible matrix sizes");
+//        else throw new UnsupportedOperationException();
 //    }
-//
+
 //    /**
 //     * Method of matrix's multiplication <code>matrix</code>
 //     * Result in the original matrix
@@ -163,10 +155,12 @@ public class Matrix {
 //     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
 //     */
 //    public Matrix multiplication(final Matrix matrix) throws MatrixException {
-//        //TODO: Delete line below and write your own solution;
-//        throw new UnsupportedOperationException();
+//        if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
+//            throw new MatrixException("Incompatible matrix sizes");
+//        else
+//            throw new UnsupportedOperationException();
 //    }
-//
+
 //    @Override
 //    public String toString() {
 //        DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -190,7 +184,7 @@ public class Matrix {
 
     @Override
     public String toString() {
-        return Arrays.deepToString(this.matrix)
+        return Arrays.deepToString(this.basicMatrix)
                 + "\nNumber of rows is: " + this.rows()
                 + "\nNumber of columns is: " + this.columns()
                 + "\n2D array out of matrix:" + Arrays.deepToString(this.twoDimensionalArray)
