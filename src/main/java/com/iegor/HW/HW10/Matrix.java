@@ -1,14 +1,13 @@
 package com.iegor.HW.HW10;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Matrix {
     private int row;
     private int column;
     private double[][] basicMatrix;
-    private double matrixElement = 0;
     private double[][] twoDimensionalArray;
-    private double[][] twoDimensionalArrayOutOfMatrix;
     private String incompatibleMatrix = "Incompatible matrix sizes";
 
     /**
@@ -64,6 +63,7 @@ public class Matrix {
      * @return Standard two-dimensional array
      */
     public double[][] twoDimensionalArrayOutOfMatrix() {
+        double[][] twoDimensionalArrayOutOfMatrix;
         twoDimensionalArrayOutOfMatrix =  this.basicMatrix;
         return twoDimensionalArrayOutOfMatrix;
     }
@@ -77,6 +77,7 @@ public class Matrix {
      * @throws MatrixException if index incorrect, returns message "Incompatible matrix sizes"
      */
     public double getValue(int row, int column) throws MatrixException {
+        double matrixElement;
         if (row >= this.basicMatrix.length ||
                 column >= this.basicMatrix[0].length)
             throw new MatrixException(incompatibleMatrix);
@@ -108,58 +109,85 @@ public class Matrix {
      * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
      */
     public Matrix addition(Matrix matrix) throws MatrixException {
-//        double[][] matrix1;
-//        double[][] matrix2;
-//        double[][] sumOfMatrix;
+        double[][] matrix1 = this.basicMatrix;
+        System.out.println("First Matrix");
+        System.out.println(Arrays.deepToString(matrix1));
+        double[][] matrix2 = matrix.twoDimensionalArrayOutOfMatrix();
+        System.out.println("Second Matrix");
+        System.out.println(Arrays.deepToString(matrix2));
+        double[][] operationResult = new double[this.rows()][this.columns()];
         if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
             throw new MatrixException(incompatibleMatrix);
         else
-//            matrix1 = this.matrix;
-//            matrix2 = matrix.twoDimensionalArrayOutOfMatrix();
-            throw new UnsupportedOperationException();
-//        Matrix sumOfMatrix = new Matrix();
-//        for (int i = 0; i < this.twoDimensionalArray.length; i++){
-//            for (int j = 0; j < this.twoDimensionalArray[0].length; j++){
-//                sumOfMatrix[i][j] = this.matrix[i][j] + matrix.twoDimensionalArrayOutOfMatrix()[i][j];
-//                this.matrix = sumOfMatrix;
-//                return this.matrix;
-//            }
-//
-//        }
-
-        //TODO: Delete line below and write your own solution;
-//        throw new UnsupportedOperationException();
-//        return matrix;
+            for (int i = 0; i < this.rows(); i++) {
+                for (int j = 0; j < this.columns(); j++) {
+                    operationResult[i][j] = matrix1[i][j] + matrix2[i][j];
+                }
+            }
+        System.out.println("Result of operation: ");
+        System.out.println(Arrays.deepToString(operationResult));
+        return new Matrix(operationResult);
     }
 
-//    /**
-//     * Method of matrix's deduction <code>matrix</code> from original.
-//     * Result in the original matrix
-//     *
-//     * @param matrix matrix corresponding to the subtracted
-//     * @return Returns a new resulting matrix
-//     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
-//     */
-//    public Matrix subtraction(final Matrix matrix) throws MatrixException {
-//        if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
-//            throw new MatrixException("Incompatible matrix sizes");
-//        else throw new UnsupportedOperationException();
-//    }
+    /**
+     * Method of matrix's deduction <code>matrix</code> from original.
+     * Result in the original matrix
+     *
+     * @param matrix matrix corresponding to the subtracted
+     * @return Returns a new resulting matrix
+     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
+     */
+    public Matrix subtraction(final Matrix matrix) throws MatrixException {
+        double[][] matrix1 = this.basicMatrix;
+        System.out.println("First Matrix");
+        System.out.println(Arrays.deepToString(matrix1));
+        double[][] matrix2 = matrix.twoDimensionalArrayOutOfMatrix();
+        System.out.println("Second Matrix");
+        System.out.println(Arrays.deepToString(matrix2));
+        double[][] operationResult = new double[this.rows()][this.columns()];
+        if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
+            throw new MatrixException(incompatibleMatrix);
+        else
+            for (int i = 0; i < this.rows(); i++) {
+                for (int j = 0; j < this.columns(); j++) {
+                    operationResult[i][j] = matrix1[i][j] - matrix2[i][j];
+                }
+            }
+        System.out.println("Result of operation: ");
+        System.out.println(Arrays.deepToString(operationResult));
+        return new Matrix(operationResult);
+    }
 
-//    /**
-//     * Method of matrix's multiplication <code>matrix</code>
-//     * Result in the original matrix
-//     *
-//     * @param matrix matrix corresponding to the second factor
-//     * @return Returns a new resulting matrix
-//     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
-//     */
-//    public Matrix multiplication(final Matrix matrix) throws MatrixException {
-//        if (matrix.rows() != this.rows() || matrix.columns() != this.columns())
-//            throw new MatrixException("Incompatible matrix sizes");
-//        else
-//            throw new UnsupportedOperationException();
-//    }
+    /**
+     * Method of matrix's multiplication <code>matrix</code>
+     * Result in the original matrix
+     *
+     * @param matrix matrix corresponding to the second factor
+     * @return Returns a new resulting matrix
+     * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
+     */
+    public Matrix multiplication(final Matrix matrix) throws MatrixException {
+        double[][] matrix1 = this.basicMatrix;
+        System.out.println("First Matrix");
+        System.out.println(Arrays.deepToString(matrix1));
+        double[][] matrix2 = matrix.twoDimensionalArrayOutOfMatrix();
+        System.out.println("Second Matrix");
+        System.out.println(Arrays.deepToString(matrix2));
+        double[][] operationResult = new double[this.rows()][matrix.columns()];
+        if (matrix.rows() != this.rows() || matrix.columns() != this.columns() || this.rows() != matrix.columns())
+            throw new MatrixException(incompatibleMatrix);
+        else
+            for (int i = 0; i < this.rows(); i++) {
+                for (int j = 0; j < matrix.columns(); j++) {
+                    for (int k = 0; k < this.columns(); k++) {
+                        operationResult[i][j] = operationResult[i][j] + matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+        System.out.println("Result of operation: ");
+        System.out.println(Arrays.deepToString(operationResult));
+        return new Matrix(operationResult);
+    }
 
 //    @Override
 //    public String toString() {
@@ -184,10 +212,10 @@ public class Matrix {
 
     @Override
     public String toString() {
-        return Arrays.deepToString(this.basicMatrix)
-                + "\nNumber of rows is: " + this.rows()
-                + "\nNumber of columns is: " + this.columns()
-                + "\n2D array out of matrix:" + Arrays.deepToString(this.twoDimensionalArray)
-                +"\n";
+        return Arrays.deepToString(this.basicMatrix);
+//                + "\nNumber of rows is: " + this.rows()
+//                + "\nNumber of columns is: " + this.columns()
+//                + "\n2D array out of matrix:" + Arrays.deepToString(this.twoDimensionalArray)
+//                +"\n";
     }
 }
