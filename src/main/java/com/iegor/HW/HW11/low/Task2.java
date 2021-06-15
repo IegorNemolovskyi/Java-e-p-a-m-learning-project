@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Task2 {
+    private Task2 (){}
     /**
      * Task 2.
      *

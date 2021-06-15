@@ -20,7 +20,7 @@ public class Task5 {
     public static List<String> getSortedAscOddValues(List<Integer> intList) {
         return intList.stream()
                 .filter(string -> string%2==1)
-                .map(string -> String.valueOf(string))
+                .map(String::valueOf)
                 .collect(Collectors.toList());
     }
 }

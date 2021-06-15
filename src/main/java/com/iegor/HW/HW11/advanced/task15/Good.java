@@ -1,4 +1,4 @@
-package com.epam.test.automation.java.practice14.advanced.task15;
+package com.iegor.HW.HW11.advanced.task15;
 
 public class Good {
 
@@ -34,5 +34,14 @@ public class Good {
 
     public void setCountryOfOrigin(final String countryOfOrigin) {
         this.countryOfOrigin = countryOfOrigin;
+    }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                productSKU + '-' +
+                category + '\'' +
+                countryOfOrigin + '\'' +
+                '}';
     }
 }

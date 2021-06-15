@@ -50,9 +50,7 @@ public class ShopWithMaxDiscountOwner {
 
     @Override
     public String toString() {
-        return "ShopWithMaxDiscountOwner{" +
-                "storeName='" + storeName + '\'' +
-                ", supplier=" + supplier +
-                '}';
+        return "'" + storeName + "' "
+                + "(" + supplier + ")";
     }
 }

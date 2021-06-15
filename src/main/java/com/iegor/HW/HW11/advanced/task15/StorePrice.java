@@ -1,4 +1,4 @@
-package com.epam.test.automation.java.practice14.advanced.task15;
+package com.iegor.HW.HW11.advanced.task15;
 
 import java.math.BigDecimal;
 
@@ -36,5 +36,14 @@ public class StorePrice {
 
     public void setPrice(final BigDecimal price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "StorePrice{" +
+                productSKU +
+                "-" + storeTitle +
+                "-" + price +
+                '}';
     }
 }

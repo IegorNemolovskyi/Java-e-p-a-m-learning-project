@@ -32,21 +32,21 @@ public class Task14 {
                 .stream()
                 .sorted(Comparator.comparing(Supplier::getCustomerId))
                 .map(supplier -> {
-                    int supplierDiscountPercentage =0;
+                    int supplierDiscountPercentage = 0;
                     for (SupplierDiscount supplierDiscount : supplierDiscountList
                             .stream()
                             .filter(percent -> percent.getDiscountPercentage() > supplierDiscountPercentage)
                             .collect(Collectors.toList())) {
                         int discount = 0;
                         if (supplier.getCustomerId() == supplierDiscount.getCustomerId()
-                                && supplierDiscount.getDiscountPercentage() > 0){
+                                && supplierDiscount.getDiscountPercentage() > discount){
                             return new ShopWithMaxDiscountOwner(supplierDiscount.getStoreName(), supplier);
                         }
                     }
                     return null;
                 })
                 .filter(Objects::nonNull)
-                .collect(Collectors.toMap(ShopWithMaxDiscountOwner::getStoreName, a -> a, (a, b) -> b)).values()
+                .collect(Collectors.toMap(ShopWithMaxDiscountOwner::getStoreName, p -> p, (p, q) -> p)).values()
                 .stream()
                 .sorted(Comparator.comparing(ShopWithMaxDiscountOwner::getStoreName))
                 .collect(Collectors.toList());

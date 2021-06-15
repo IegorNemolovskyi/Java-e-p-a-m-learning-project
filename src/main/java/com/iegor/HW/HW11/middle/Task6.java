@@ -24,13 +24,13 @@ public class Task6 {
     public static List<String> shouldReturnStringWithFirstLetterDigitAndLengthEqualsNumber
     (List<Integer> numbers, List<String> stringList) {
         return numbers.stream()
-                .map(number -> {
-                    return stringList.stream()
+                .map(number ->
+                    stringList.stream()
                             .filter(string -> string.length() == number && Character.isDigit(string.charAt(0)))
                             .findFirst()
-                            .orElse("Not Found");
-                })
-                .map(string -> String.valueOf(string))
+                            .orElse("Not Found")
+                )
+                .map(String::toString)
                 .collect(Collectors.toList());
     }
 }

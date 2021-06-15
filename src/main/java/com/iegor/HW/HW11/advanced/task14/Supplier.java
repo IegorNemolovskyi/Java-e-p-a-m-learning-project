@@ -61,10 +61,8 @@ public class Supplier {
 
     @Override
     public String toString() {
-        return "Supplier{" +
-                "customerId=" + customerId +
-                ", yearOfBirth=" + yearOfBirth +
-                ", streetOfResidence='" + streetOfResidence + '\'' +
-                '}';
+        return "Id=" + customerId +
+                ", " + yearOfBirth +
+                ", '" + streetOfResidence + '\'';
     }
 }
